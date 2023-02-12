@@ -4,6 +4,12 @@ import "notyf/notyf.min.css";
 export enum SccMsg {
   LOGOUT_SUCCESS = "logout successfully",
   LOGIN_SUCCESS = "login successfully",
+  GOT_USERS = "got users successfully",
+  ADDED_USER = "Added user successfully",
+  UPDATE_USER = "user updated successfully",
+  DELETE_USER = "Delete user successfully",
+  GOT_STOCKS = "got stocks successfully",
+  GOT_STOCK_DATA = "got stock data successfully",
 }
 
 export enum ErrMsg {

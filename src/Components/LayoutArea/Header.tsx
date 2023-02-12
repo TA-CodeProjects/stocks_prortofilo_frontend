@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthMenu from "../AuthArea/AuthMenu";
+import CustomLink from "../SharedArea/CustomLink";
 
 function Header(): JSX.Element {
     return (
@@ -13,7 +14,7 @@ function Header(): JSX.Element {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav.Link>
-              <Link to="home">Home</Link>
+              <CustomLink to="home">Home</CustomLink>
             </Nav.Link>
             <AuthMenu />
           </Navbar.Collapse>

@@ -2,3 +2,34 @@
   text-align: center;
 }
 
+.form-style {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.CustomLink {
+    color: white;
+    /* margin-bottom: 15px;
+    font-size: 30px;
+    text-decoration: none; */
+}
+
+
+.CustomLink .active {
+    color: white;
+    border-bottom: 3px solid white;
+    /* font-weight: 700;
+    font-size: xx-large;
+    text-decoration: dashed; */
+}
+
+.CustomLink:link {
+    text-decoration: none;
+}
+
+.CustomLink:hover {
+    cursor: pointer;
+    color: gray;
+    /* background-color: gray; */
+}

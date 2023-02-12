@@ -1,12 +1,13 @@
+import { Container } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Routing from "../SharedArea/Routing";
 
 function Main(): JSX.Element {
     return (
-        <div className="Main">
+        <Container>
             <Routing />
             <Outlet />
-        </div>
+        </Container>
     )
 }
 

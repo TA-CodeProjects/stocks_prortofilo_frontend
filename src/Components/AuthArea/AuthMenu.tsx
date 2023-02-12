@@ -3,6 +3,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthModel } from "../../Models/AuthModel";
 import store from "../../Redux/store";
+import CustomLink from "../SharedArea/CustomLink";
 
 function AuthMenu(): JSX.Element {
   const [user, setUser] = useState<AuthModel>(store.getState().authState.user);
@@ -20,20 +21,20 @@ function AuthMenu(): JSX.Element {
         <Nav>
           <Navbar.Text>Hello {user.username}</Navbar.Text>
           <Nav.Link>
-            <Link to="logout">Logout</Link>
+            <CustomLink to="logout">Logout</CustomLink>
           </Nav.Link>
           <Nav.Link>
-            <Link to="admin">Admin</Link>
+            <CustomLink to="admin">Admin</CustomLink>
           </Nav.Link>
           <Nav.Link>
-            <Link to="user">User</Link>
+            <CustomLink to="user">User</CustomLink>
           </Nav.Link>
         </Nav>
       ) : (
         <Nav>
           <Navbar.Text>Hello Guest</Navbar.Text>
           <Nav.Link>
-            <Link to="login">login</Link>
+            <CustomLink to="login">login</CustomLink>
           </Nav.Link>
         </Nav>
       )}

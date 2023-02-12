@@ -11,5 +11,5 @@ export function useToken(): any {
             notify.error(ErrMsg.PLS_LOGIN);
             navigate("/login");
         }
-    }, []);
+    },);
 }
