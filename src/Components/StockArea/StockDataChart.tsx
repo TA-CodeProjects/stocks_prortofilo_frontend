@@ -16,7 +16,10 @@ function StockDataChart(props: ChartProps): JSX.Element{
       datasets: [
         {
           label: props.stockData?.stockName,
-          data: props.stockData?.days?.map((day) => day.price).reverse(),
+          data: props.stockData?.days
+            ?.map((day) => day.price)
+            .reverse()
+            .slice(props.slice),
           backgroundColor: ["rgba(0,0,0,1)"],
           borderColor: "black",
           borderWidth: 2,

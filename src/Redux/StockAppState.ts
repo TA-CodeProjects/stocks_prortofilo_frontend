@@ -1,38 +1,46 @@
-import { DayModel } from "../Models/DayModel";
-import { StockPerformanceModel } from "../Models/StockPerformanceModel";
+import { StockModel } from "../Models/StockModel";
 
-export  class StockAppState {
-    public stocksPerformance: StockPerformanceModel[] = [];
-    public stockDays: DayModel[] = [];
+export class StockAppState {
+  public stocks: StockModel[] = [];
 }
 
 export enum StockActionType {
-  StocksPerformanceDownload = "StocksPerformanceDownload",
-  StockDaysDownload = "StockDaysDownload",
-  StocksPerformanceClear = "StocksPerformanceClear",
+  StockDownloaded = "StockDownloaded",
+  StockAdded = "StockAdded",
+  StockDeleted = "StockDeleted",
 }
 
 export interface StockAction {
-    type: StockActionType;
-    payload?: any; 
+  type: StockActionType;
+  payload?: any;
 }
 
-export function stockPerformanceDownloadedAction(stocksPerformance: StockPerformanceModel[]): StockAction {
-    return { type: StockActionType.StocksPerformanceDownload, payload: stocksPerformance };
+export function stocksDownloaded(stocks: StockModel[]): StockAction {
+  return { type: StockActionType.StockDownloaded, payload: stocks };
 }
 
-export function StockDaysDownloadAction(stockDays: DayModel[]): StockAction {
-    return { type: StockActionType.StockDaysDownload, payload: stockDays};
+export function stocksAdded(stock: StockModel): StockAction {
+  return { type: StockActionType.StockAdded, payload: stock };
 }
 
-export function stockReducer(currentState: StockAppState = new StockAppState(), action: StockAction): StockAppState {
+export function stocksDeleted(id: number): StockAction {
+  return { type: StockActionType.StockDeleted, payload: id };
+}
+
+export function stockReducer(
+  currentState: StockAppState = new StockAppState(),
+  action: StockAction
+): StockAppState {
     const newState = {...currentState};
     switch (action.type) {
-        case StockActionType.StocksPerformanceDownload:
-            newState.stocksPerformance = action.payload;
+        case StockActionType.StockDownloaded:
+            newState.stocks = action.payload;
             break;
-        case StockActionType.StockDaysDownload:
-            newState.stockDays = action.payload;
+        case StockActionType.StockAdded:
+            newState.stocks.push(action.payload);
+            break;
+        case StockActionType.StockDeleted:
+            newState.stocks = newState.stocks.filter(stock => stock.id !== action.payload);
             break;
     }
     return newState;

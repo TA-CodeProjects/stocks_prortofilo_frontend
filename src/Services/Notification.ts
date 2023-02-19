@@ -9,7 +9,10 @@ export enum SccMsg {
   UPDATE_USER = "user updated successfully",
   DELETE_USER = "Delete user successfully",
   GOT_STOCKS = "got stocks successfully",
+  ADDED_STOCK = "Add stock successfully",
+  DELETE_STOCK = "stock deleted successfully",
   GOT_STOCK_DATA = "got stock data successfully",
+  MADE_TRANSACTION = "transaction made successfully",   
 }
 
 export enum ErrMsg {
@@ -19,7 +22,7 @@ export enum ErrMsg {
 class Notify {
     private notification = new Notyf({
         duration: 6000,
-        position: {x: "left", y: "top" },
+        position: {x: "left", y: "bottom" },
     })
 
     public success(message: string) {

@@ -43,23 +43,23 @@ function UserList(): JSX.Element {
         <div className="pt-2">
           <Table striped bordered hover>
             <thead>
-              <th>Id</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Password</th>
+              <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+              </tr>
             </thead>
             <tbody>
-              {users.map(user => (
+              {users.map((user) => (
                 <User key={user.id} user={user} setUsers={setUsers} />
               ))}
             </tbody>
           </Table>
         </div>
       ) : (
-        <h3 className="mt-4 text-muted">
-          No users found!
-        </h3>
+        <h3 className="mt-4 text-muted">No users found!</h3>
       )}
     </div>
   );
