@@ -10,14 +10,12 @@ import { getStockDay } from "../../WebApi/StockApi";
 import PercentageChange from "../SharedArea/PercentageChange";
 import StockDataChart from "./StockDataChart";
 
-
-
 function StockData(): JSX.Element {
   const params = useParams();
   const stockName = params.stockName || "";
 
   const [stockData, setStockData] = useState<StockDataModel>(
-    store.getState().stockDataState.stocksData.filter(stock => stock.stockName === stockName)[0]
+    store.getState().stockDataState.stocksData.filter((stock) => stock.stockName === stockName)[0]
   );
 
   const stock: StockPerformanceModel = store
@@ -45,13 +43,11 @@ function StockData(): JSX.Element {
     }
   }, [stockName]);
 
- 
-
   return (
     <div className="stockData">
       <Row className="d-flex align-items-center">
         <Col xs={9}>
-          <Nav variant="tabs" defaultActiveKey="link1" onSelect={handleSelect}>
+          <Nav variant="tabs" defaultActiveKey="-7" onSelect={handleSelect}>
             <Nav.Item>
               <Nav.Link eventKey="-7">7 days</Nav.Link>
             </Nav.Item>
@@ -66,33 +62,26 @@ function StockData(): JSX.Element {
         </Col>
         <Col xs={3}>
           <Stack gap={3}>
-            <div className="bg-light border">
+            <div className="bg-light text-dark border">
               <h2>{stock?.stockName}</h2>
             </div>
-            <div className="bg-light border">
+            <div className="bg-light text-dark border">
               <h2>{stock?.day0.price}</h2>
             </div>
-            <div className="bg-light border">
-              last day:{" "}
-              <PercentageChange from={stock.day0.price} to={stock.day1.price} />
+            <div className="bg-light text-dark border">
+              Change:
             </div>
-            <div className="bg-light border">
-              last 7 days:{" "}
-              <PercentageChange from={stock.day0.price} to={stock.day5.price} />
+            <div className="bg-light text-dark border">
+              day: <PercentageChange from={stock.day0.price} to={stock.day1.price} />
             </div>
-            <div className="bg-light border">
-              last 30 days:{" "}
-              <PercentageChange
-                from={stock.day0.price}
-                to={stock.day22.price}
-              />
+            <div className="bg-light text-dark border">
+              7 days: <PercentageChange from={stock.day0.price} to={stock.day5.price} />
             </div>
-            <div className="bg-light border">
-              last 90 days:{" "}
-              <PercentageChange
-                from={stock.day0.price}
-                to={stock.day66.price}
-              />
+            <div className="bg-light text-dark border">
+              30 days: <PercentageChange from={stock.day0.price} to={stock.day22.price} />
+            </div>
+            <div className="bg-light text-dark border">
+              90 days: <PercentageChange from={stock.day0.price} to={stock.day66.price} />
             </div>
           </Stack>
         </Col>

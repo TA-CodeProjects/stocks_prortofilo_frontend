@@ -31,16 +31,16 @@ function StockList(): JSX.Element {
 
   return (
     <div className="stockList">
-      <h2>Stocks List</h2>
-      <Table bordered hover>
+      <h2>Stocks Change</h2>
+      <Table bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Stock Name</th>
+            <th>Stock</th>
             <th>Price</th>
-            <th>Last day</th>
-            <th>Last 7 day</th>
-            <th>Last 30 day</th>
-            <th>Last 90 day</th>
+            <th>day</th>
+            <th>7 day</th>
+            <th>30 day</th>
+            <th>90 day</th>
             <th></th>
             <th></th>
           </tr>
@@ -51,28 +51,16 @@ function StockList(): JSX.Element {
               <td>{stock.stockName}</td>
               <td>{stock.day0.price}</td>
               <td>
-                <PercentageChange
-                  from={stock.day0.price}
-                  to={stock.day1.price}
-                />
+                <PercentageChange from={stock.day0.price} to={stock.day1.price} />
               </td>
               <td>
-                <PercentageChange
-                  from={stock.day0.price}
-                  to={stock.day5.price}
-                />
+                <PercentageChange from={stock.day0.price} to={stock.day5.price} />
               </td>
               <td>
-                <PercentageChange
-                  from={stock.day0.price}
-                  to={stock.day22.price}
-                />
+                <PercentageChange from={stock.day0.price} to={stock.day22.price} />
               </td>
               <td>
-                <PercentageChange
-                  from={stock.day0.price}
-                  to={stock.day66.price}
-                />
+                <PercentageChange from={stock.day0.price} to={stock.day66.price} />
               </td>
               <td>
                 <Link to={`/stockData/${stock.stockName}`}>

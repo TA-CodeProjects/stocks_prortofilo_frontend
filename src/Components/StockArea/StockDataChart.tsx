@@ -21,11 +21,12 @@ function StockDataChart(props: ChartProps): JSX.Element{
             .reverse()
             .slice(props.slice),
           backgroundColor: ["rgba(0,0,0,1)"],
-          borderColor: "black",
+          borderColor: "white",
           borderWidth: 2,
         },
       ],
     };
+
 
     return (
         <div className="chart-data">

@@ -13,9 +13,11 @@ function Header(): JSX.Element {
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav.Link>
-              <CustomLink to="home">Home</CustomLink>
-            </Nav.Link>
+            <Nav className="me-auto">
+              <Nav.Link>
+                <CustomLink to="home">Home</CustomLink>
+              </Nav.Link>
+            </Nav>
             <AuthMenu />
           </Navbar.Collapse>
         </Container>

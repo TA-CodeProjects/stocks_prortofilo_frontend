@@ -8,6 +8,7 @@ import StockList from "../AdminArea/StockList";
 import UserList from "../AdminArea/UserList";
 import Login from "../AuthArea/Login";
 import Logout from "../AuthArea/Logout";
+import Register from "../AuthArea/Register";
 import Home from "../PagesArea/Home";
 import StockData from "../StockArea/StockData";
 import MakeTransaction from "../UserArea/MakeTransaction";
@@ -20,6 +21,7 @@ function Routing(): JSX.Element {
             <Route path="/home" element={<Home />} />
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/user" element={<UserPanel />} />
             <Route path="/user/transaction/:stockName/:date/:price" element={<MakeTransaction />} />

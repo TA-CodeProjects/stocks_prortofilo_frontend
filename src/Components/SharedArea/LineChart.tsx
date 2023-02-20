@@ -28,10 +28,10 @@ interface LineChartProps {
 }
 
 function LineChart(props: LineChartProps): JSX.Element {
-  let timeUnit:('day' | 'week' | 'month' );
- if (props.chartData?.labels?.length <= 7 ) {
-      timeUnit = "day";
-  } else if (props.chartData?.labels?.length <= 22 ) {
+  let timeUnit: "day" | "week" | "month";
+  if (props.chartData?.labels?.length <= 7) {
+    timeUnit = "day";
+  } else if (props.chartData?.labels?.length <= 22) {
     timeUnit = "week";
   } else {
     timeUnit = "month";
@@ -48,6 +48,14 @@ function LineChart(props: LineChartProps): JSX.Element {
               time: {
                 tooltipFormat: "MM/DD/YYYY",
                 unit: timeUnit,
+              },
+              ticks: {
+                color: "white",
+              },
+            },
+            y: {
+              ticks: {
+                color: "white",
               },
             },
           },

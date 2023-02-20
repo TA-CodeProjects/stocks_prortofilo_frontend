@@ -4,6 +4,7 @@ import "notyf/notyf.min.css";
 export enum SccMsg {
   LOGOUT_SUCCESS = "logout successfully",
   LOGIN_SUCCESS = "login successfully",
+  USER_REGISTER = "you register successfully",
   GOT_USERS = "got users successfully",
   ADDED_USER = "Added user successfully",
   UPDATE_USER = "user updated successfully",
