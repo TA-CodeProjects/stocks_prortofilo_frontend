@@ -18,7 +18,7 @@ function Stock(props: StockProps): JSX.Element {
     <tr>
       <td>{props.stock.stockName}</td>
       <td>
-        <Button onClick={handleOpen} variant="default">
+        <Button onClick={handleOpen} variant="secondary">
           <Trash3 />
         </Button>
         <DeleteStock id={props.stock.id} show={show} handleClose={handleClose} setStocks={props.setStocks} />

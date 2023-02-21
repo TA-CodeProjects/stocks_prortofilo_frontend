@@ -11,6 +11,11 @@
     padding: 20px;
 }
 
+.table-style {
+    width: 50%;
+    margin: 0 auto;
+}
+
 .CustomLink {
     color: white;
     /* margin-bottom: 15px;

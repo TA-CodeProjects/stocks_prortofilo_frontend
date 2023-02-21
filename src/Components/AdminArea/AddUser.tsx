@@ -38,46 +38,30 @@ function AddUser(): JSX.Element {
 return (
   <div className="form-style">
     <h2>Add User</h2>
-    <Form onSubmit={handleSubmit(add)}>
+    <Form onSubmit={handleSubmit(add)} className="border border-default border-3 p-4 my-5">
       <Form.Group className="mb-3" controlId="formFirstName">
         <Form.Label>First Name</Form.Label>
-        <Form.Control
-          {...register("firstName")}
-          type="text"
-          placeholder="Enter First Name"
-        />
+        <Form.Control {...register("firstName")} type="text" placeholder="Enter First Name" />
         <span className="text-danger">{errors.firstName?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formLastName">
         <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          {...register("lastName")}
-          type="text"
-          placeholder="Enter Last Name"
-        />
+        <Form.Control {...register("lastName")} type="text" placeholder="Enter Last Name" />
         <span className="text-danger">{errors.lastName?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control
-          {...register("email")}
-          type="text"
-          placeholder="Enter email"
-        />
+        <Form.Control {...register("email")} type="text" placeholder="Enter email" />
         <span className="text-danger">{errors.email?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          {...register("password")}
-          type="text"
-          placeholder="Enter password"
-        />
+        <Form.Control {...register("password")} type="text" placeholder="Enter password" />
         <span className="text-danger">{errors.password?.message}</span>
       </Form.Group>
       <Form.Group>
         <Button disabled={!isValid} variant="primary" type="submit">
-            Add
+          Add
         </Button>
       </Form.Group>
     </Form>

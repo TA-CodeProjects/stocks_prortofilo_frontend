@@ -1,4 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { BarChart } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
 import AuthMenu from "../AuthArea/AuthMenu";
 import CustomLink from "../SharedArea/CustomLink";
@@ -8,7 +9,9 @@ function Header(): JSX.Element {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">
-            <h2>Stocks</h2>
+            <h2>
+              <BarChart size={24} /> Stocks
+            </h2>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

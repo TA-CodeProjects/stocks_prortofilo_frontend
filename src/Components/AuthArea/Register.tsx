@@ -39,7 +39,7 @@ function Register(): JSX.Element {
   };
 
   return (
-    <div className="Register">
+    <div className="form-style">
       <h2>Register</h2>
       <Form
         onSubmit={handleSubmit(registerUser)}
@@ -66,9 +66,9 @@ function Register(): JSX.Element {
           <span className="text-danger">{errors.password?.message}</span>
         </Form.Group>
         <Form.Group>
-            <Button disabled={!isValid} variant="primary" type="submit">
-                Register
-            </Button>
+          <Button disabled={!isValid} variant="primary" type="submit">
+            Register
+          </Button>
         </Form.Group>
       </Form>
     </div>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { PencilSquare, Trash3 } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Trash3 } from "react-bootstrap-icons";
 import { UserModel } from "../../Models/UserModel";
+import { totalPortfolio, totalProfit } from "../SharedArea/Utils";
 import DeleteUser from "./DeleteUser";
+import UserDetail from "./UserDetail";
 
 interface UserProps {
   user: UserModel;
@@ -17,28 +18,26 @@ function User(props: UserProps): JSX.Element {
 
   return (
     <tr>
-      <td>{props.user.id}</td>
-      <td>{props.user.firstName}</td>
-      <td>{props.user.lastName}</td>
       <td>{props.user.email}</td>
-      <td>{props.user.password}</td>
+      <td>{totalPortfolio(props.user.stocks)}</td>
+      <td>{totalProfit(props.user.stocks)}</td>
       <td>
-        <Button variant="default">
-          <Link to={"/admin/user/edit/" + props.user.id}>
-            <PencilSquare />
-          </Link>
-        </Button>
+        <UserDetail user={props.user} />
       </td>
       <td>
-        <Button onClick={handleOpen} variant="default">
-          <Trash3 />
-        </Button>
-        <DeleteUser
-          id={props.user.id}
-          show={show}
-          handleClose={handleClose}
-          setUsers={props.setUsers}
-        />
+        {props.user.email !== "admin@admin.com" && (
+          <>
+            <Button onClick={handleOpen} variant="secondary">
+              <Trash3 />
+            </Button>
+            <DeleteUser
+              id={props.user.id}
+              show={show}
+              handleClose={handleClose}
+              setUsers={props.setUsers}
+            />
+          </>
+        )}
       </td>
     </tr>
   );

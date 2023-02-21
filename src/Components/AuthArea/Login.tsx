@@ -44,32 +44,21 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <div className="form-style">
       <h2>Login</h2>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)} className="border border-default border-3 p-4 my-5">
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control
-            {...register("email")}
-            type="text"
-            placeholder="Enter Email"
-          />
+          <Form.Control {...register("email")} type="text" placeholder="Enter Email" />
           <span className="text-danger">{errors.email?.message}</span>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Control
-            {...register("password")}
-            type="text"
-            placeholder="Enter Password"
-          />
+          <Form.Label>Password</Form.Label>
+          <Form.Control {...register("password")} type="text" placeholder="Enter Password" />
           <span className="text-danger">{errors.password?.message}</span>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Button
-            disabled={!isValid || !isDirty}
-            variant="primary"
-            type="submit"
-          >
+          <Button disabled={!isValid || !isDirty} variant="primary" type="submit">
             Login
           </Button>
         </Form.Group>

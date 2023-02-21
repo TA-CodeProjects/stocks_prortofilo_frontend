@@ -6,11 +6,14 @@ import * as yup from "yup";
 import { TransactionModel } from "../../Models/TransactionModel";
 import store from "../../Redux/store";
 import { userStockAdded } from "../../Redux/UserStockAppState";
+import { useToken } from "../../Services/LoginHook";
 import notify, { SccMsg } from "../../Services/Notification";
 import { makeTransaction } from "../../WebApi/UserApi";
 
 function MakeTransaction(): JSX.Element {
   const navigate = useNavigate();
+
+   useToken();
 
   const params = useParams();
   const stockName = params.stockName;
@@ -55,13 +58,10 @@ function MakeTransaction(): JSX.Element {
   return (
     <div className="form-style">
       <h2>Make Transaction</h2>
-      <Form onSubmit={handleSubmit(makeTrans)}>
+      <Form onSubmit={handleSubmit(makeTrans)} className="border border-default border-3 p-4 my-5">
         <Form.Group className="mb-3" controlId="formStockName">
           <Form.Label>Stock Name</Form.Label>
-          <Form.Control
-            {...register("stockName")}
-            disabled
-          />
+          <Form.Control {...register("stockName")} disabled />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formDate">
           <Form.Label>Date</Form.Label>
@@ -69,11 +69,7 @@ function MakeTransaction(): JSX.Element {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAmount">
           <Form.Label>Amount</Form.Label>
-          <Form.Control
-            {...register("amount")}
-            type="number"
-            placeholder="Enter Amount"
-          />
+          <Form.Control {...register("amount")} type="number" placeholder="Enter Amount" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrice">
           <Form.Label>Price</Form.Label>

@@ -41,14 +41,14 @@ function UserList(): JSX.Element {
       </ButtonGroup>
       {users.length > 0 ? (
         <div className="pt-2">
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="dark">
             <thead>
               <tr>
-                <th>Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
                 <th>Email</th>
-                <th>Password</th>
+                <th>Portfolio</th>
+                <th>Profit</th>
+                <th>Stocks</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

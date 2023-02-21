@@ -29,9 +29,9 @@ function StockList(): JSX.Element {
   },[stocks]);
 
   return (
-    <div className="stockList">
-      <h2>Stock List</h2>
-      <ButtonGroup>
+    <div className="table-style my-4">
+      <h2>Stocks</h2>
+      <ButtonGroup className="my-4">
         <Button variant="secondary">
           <CustomLink to="/admin">Back</CustomLink>
         </Button>
@@ -39,7 +39,7 @@ function StockList(): JSX.Element {
           <CustomLink to="/admin/stock/add">Add Stock</CustomLink>
         </Button>
       </ButtonGroup>
-      <Table striped bordered hover>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>Stock</th>

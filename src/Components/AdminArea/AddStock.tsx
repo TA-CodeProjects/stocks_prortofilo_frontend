@@ -35,26 +35,22 @@ function AddStock(): JSX.Element {
   };
 
   return (
-     <div className="form-style">
-        <h2>Add Stock</h2>
-        <Form onSubmit={handleSubmit(add)}>
-            <Form.Group className="mb-3" controlId="formStockName">
-                <Form.Label>Stock Name</Form.Label>
-                <Form.Control
-                {...register("stockName")}
-                type = "text"
-                placeholder = "Enter stock name"
-                />
-                <span className="text-danger">{errors.stockName?.message}</span> 
-            </Form.Group>
-            <Form.Group>
-                <Button disabled={!isValid} className="primary" type="submit">
-                    Add
-                </Button>
-            </Form.Group>
-        </Form>
-     </div>
-  )
+    <div className="form-style">
+      <h2>Add Stock</h2>
+      <Form onSubmit={handleSubmit(add)} className="border border-default border-3 p-4 my-5">
+        <Form.Group className="mb-3" controlId="formStockName">
+          <Form.Label>Stock Name</Form.Label>
+          <Form.Control {...register("stockName")} type="text" placeholder="Enter stock name" />
+          <span className="text-danger">{errors.stockName?.message}</span>
+        </Form.Group>
+        <Form.Group>
+          <Button disabled={!isValid} className="primary" type="submit">
+            Add
+          </Button>
+        </Form.Group>
+      </Form>
+    </div>
+  );
   }
 
   export default AddStock;

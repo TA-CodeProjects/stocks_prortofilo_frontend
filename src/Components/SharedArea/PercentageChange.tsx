@@ -1,3 +1,5 @@
+import { ArrowDown, ArrowUp } from "react-bootstrap-icons";
+
 interface PercentageChangeProps {
   from: number;
   to: number;
@@ -7,8 +9,10 @@ interface PercentageChangeProps {
 function PercentageChange(props: PercentageChangeProps): JSX.Element {
   const change = ((props.from / props.to - 1) * 100);
   return (
-    <span className={change < 0 ? 'text-danger' : 'text-success'}>{change.toFixed(2)}%</span>
-  ) 
+    <span>
+      {change > 0 ? <ArrowUp /> : <ArrowDown />} {change.toFixed(2)}%
+    </span>
+  ); 
 }
 
 export default PercentageChange;

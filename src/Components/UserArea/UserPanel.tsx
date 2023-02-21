@@ -38,16 +38,18 @@ function UserPanel(): JSX.Element {
   console.log(userStocks);
 
   return (
-    <div>
+    <div className="mt-4">
+      <h5>My portfolio:</h5>
       <h1>
-        Your total portfolio: <span>{totalPortfolio(userStocks)}</span>
+        <span>{totalPortfolio(userStocks)}</span>
       </h1>
-      <h1>
-        Your total profit: <span>{totalProfit(userStocks)}</span>
-      </h1>
-      <Row gap={4} className="my-4">
+      <h5>Profit:</h5>
+      <h5>
+       {totalProfit(userStocks)}
+      </h5>
+      <Row gap={4} className="my-4 float-start">
         {userStocks.map((userStock) => (
-         <StockCard userStock={userStock} />
+          <StockCard userStock={userStock} />
         ))}
       </Row>
     </div>
