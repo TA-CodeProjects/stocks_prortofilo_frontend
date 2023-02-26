@@ -18,7 +18,7 @@ function StockCard(props: StockCardProps): JSX.Element {
   const handleOpen = () => setShow(true);
 
   return (
-    <Col className="d-flex justify-content-center">
+    <Col className="d-flex justify-content-center my-4">
       <Card style={{ width: "18rem" }} className="bg-primary ">
         <Card.Header>
           <h2>{props.userStock.stockName}</h2>

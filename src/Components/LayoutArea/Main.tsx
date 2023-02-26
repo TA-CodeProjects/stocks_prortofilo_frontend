@@ -4,7 +4,7 @@ import Routing from "../SharedArea/Routing";
 
 function Main(): JSX.Element {
     return (
-        <Container>
+        <Container className="container-padding">
             <Routing />
             <Outlet />
         </Container>

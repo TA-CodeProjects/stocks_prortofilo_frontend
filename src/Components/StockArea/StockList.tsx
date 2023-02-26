@@ -32,6 +32,8 @@ function StockList(): JSX.Element {
   return (
     <div className="stockList">
       <h2>Stocks Change</h2>
+      <p className="text-end text-success">Green = Recommeded</p>
+      <p className="text-end text-danger">Red = Not recommeded</p>
       <Table bordered hover variant="dark">
         <thead>
           <tr>
@@ -46,7 +48,7 @@ function StockList(): JSX.Element {
           </tr>
         </thead>
         <tbody>
-          {stocks.map((stock) => (
+          {stocks.sort((s) => s.day0.sma - s.day0.price).map((stock) => (
             <tr key={stock.stockName}>
               <td>{stock.stockName}</td>
               <td>{stock.day0.price}</td>
@@ -73,7 +75,9 @@ function StockList(): JSX.Element {
                 <Link
                   to={`/user/transaction/${stock.stockName}/${stock.day0.day}/${stock.day0.price}`}
                 >
-                  <Button variant="success">Buy</Button>
+                  <Button variant={stock.day0.price > stock.day0.sma ? "success" : "danger"}>
+                    Buy
+                  </Button>
                 </Link>
               </td>
             </tr>

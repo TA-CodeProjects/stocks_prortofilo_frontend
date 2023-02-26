@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-  background-color: black;
   color: white;
-  height: 100%;
 }
 
 .form-style {
@@ -40,4 +38,8 @@
     cursor: pointer;
     color: gray;
     /* background-color: gray; */
+}
+
+.container-padding {
+    padding-bottom: 100px;
 }

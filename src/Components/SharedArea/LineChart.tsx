@@ -65,7 +65,10 @@ function LineChart(props: LineChartProps): JSX.Element {
               text: props.chartData.title,
             },
             legend: {
-              display: false,
+              display: true,
+              labels: {
+                color: "white",
+              },
             },
           },
         }}
